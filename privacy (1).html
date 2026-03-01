@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polityka Prywatności – LiGo Career</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:    #C4001A;
+      --yellow: #F5C400;
+      --blue:   #006CB7;
+      --green:  #007A3E;
+      --cream:  #FFFBF2;
+      --light:  #F4F0E6;
+      --dark:   #1C1C1C;
+      --mid:    #555;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); }
+
+    /* NAV */
+    nav {
+      position:sticky; top:0; z-index:100;
+      background:rgba(255,251,242,0.93); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,0.07);
+      padding:0 60px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo {
+      font-family:'Baloo 2',cursive; font-weight:900; font-size:22px;
+      color:var(--dark); text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+    }
+    .logo-brick {
+      width:32px; height:18px; background:var(--red);
+      border-radius:3px; border:2px solid rgba(0,0,0,0.2);
+      box-shadow:2px 2px 0 rgba(0,0,0,0.15);
+      display:flex; align-items:flex-start;
+      justify-content:space-evenly; padding-top:2px;
+    }
+    .logo-brick::before,.logo-brick::after {
+      content:''; width:8px; height:7px; background:#e0001c;
+      border-radius:50% 50% 0 0; border:1.5px solid rgba(0,0,0,0.18);
+    }
+    .back-btn {
+      font-family:'Baloo 2',cursive; font-weight:700; font-size:13px;
+      color:var(--mid); text-decoration:none;
+      border:1.5px solid rgba(0,0,0,0.12); border-radius:100px;
+      padding:7px 18px; transition:all .2s;
+    }
+    .back-btn:hover { color:var(--red); border-color:var(--red); }
+
+    /* CONTENT */
+    .container { max-width:760px; margin:0 auto; padding:60px 32px 80px; }
+
+    .page-eyebrow {
+      font-size:11px; font-weight:900; letter-spacing:2.5px;
+      text-transform:uppercase; color:var(--red); margin-bottom:10px;
+    }
+    h1 {
+      font-family:'Baloo 2',cursive; font-weight:900;
+      font-size:clamp(28px,4vw,46px); line-height:1.1;
+      color:var(--dark); margin-bottom:6px;
+    }
+    .updated {
+      font-size:12px; font-weight:600; color:rgba(28,28,28,0.35);
+      margin-bottom:36px;
+    }
+
+    /* COLORBAR */
+    .colorbar {
+      height:5px; border-radius:100px; margin-bottom:36px;
+      background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue),var(--green));
+    }
+
+    .highlight-box {
+      background:white; border-radius:14px;
+      border:1.5px solid rgba(0,0,0,0.07);
+      box-shadow:0 2px 20px rgba(0,0,0,0.05), 4px 4px 0 rgba(0,0,0,0.05);
+      padding:22px 28px; margin-bottom:40px;
+      border-left:4px solid var(--yellow);
+    }
+    .highlight-box p {
+      font-size:15px; font-weight:700; color:var(--dark); line-height:1.6;
+    }
+
+    h2 {
+      font-family:'Baloo 2',cursive; font-weight:800; font-size:20px;
+      color:var(--dark); margin:40px 0 12px;
+      padding-bottom:10px; border-bottom:1.5px solid rgba(0,0,0,0.07);
+    }
+    p { font-size:14px; font-weight:600; color:rgba(28,28,28,0.6); line-height:1.8; margin-bottom:10px; }
+    ul { padding-left:1.4em; margin-bottom:12px; }
+    ul li { font-size:14px; font-weight:600; color:rgba(28,28,28,0.6); line-height:1.8; margin-bottom:4px; }
+    strong { color:var(--dark); font-weight:800; }
+    .eml { color:var(--red); font-weight:700; }
+
+    /* FOOTER */
+    footer {
+      background:var(--dark); padding:28px 60px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+    }
+    footer p { font-size:12px; font-weight:600; color:rgba(255,255,255,0.3); margin:0; }
+    footer strong { color:rgba(255,255,255,0.55); }
+    footer a { color:rgba(255,255,255,0.55); text-decoration:underline; text-underline-offset:3px; }
+    .foot-dots { display:flex; gap:6px; }
+    .fd { width:12px; height:12px; border-radius:50%; opacity:.4; }
+
+    @media(max-width:600px) {
+      nav { padding:0 20px; }
+      .container { padding:40px 20px 60px; }
+      footer { padding:20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-brick"></div>
+    LiGo Career
+  </a>
+  <a href="index.html" class="back-btn">← Wróć do serwisu</a>
+</nav>
+
+<div class="container">
+  <div class="colorbar"></div>
+  <div class="page-eyebrow">Dokumenty prawne</div>
+  <h1>Polityka Prywatności</h1>
+  <div class="updated">Ostatnia aktualizacja: 1 marca 2026</div>
+
+  <div class="highlight-box">
+    <p>&#129522; Krótko i na temat: zbieramy tylko Twój adres e-mail i link do LinkedIn gdy zamawiasz mapę kariery. Nie sprzedajemy danych nikomu. Twoja mapa zostaje wysłana na email i nie przechowujemy jej po wysyłce.</p>
+  </div>
+
+  <h2>1. Administrator danych osobowych</h2>
+  <p>Administratorem Twoich danych osobowych jest:</p>
+  <p><strong>Mediafy</strong><br>
+  Strona: <a href="https://www.mediafy.com.pl/" target="_blank" style="color:var(--red)">www.mediafy.com.pl</a><br>
+  E-mail kontaktowy: <span class="eml">kontakt@mediafy.com.pl</span></p>
+  <p>W sprawach dotyczących ochrony danych osobowych możesz kontaktować się z nami pod powyższym adresem e-mail.</p>
+
+  <h2>2. Jakie dane zbieramy</h2>
+  <p>Zbieramy wyłącznie:</p>
+  <ul>
+    <li><strong>Adres e-mail</strong> — do wysyłki gotowej mapy kariery</li>
+    <li><strong>Imię</strong> (opcjonalnie) — do personalizacji mapy</li>
+    <li><strong>Link do profilu LinkedIn</strong> — do pobrania danych o doświadczeniu zawodowym</li>
+  </ul>
+  <p>Nie zbieramy numeru telefonu, adresu zamieszkania ani żadnych innych danych osobowych.</p>
+
+  <h2>3. W jakim celu przetwarzamy Twoje dane</h2>
+  <p>Twoje dane wykorzystujemy wyłącznie w celu:</p>
+  <ul>
+    <li><strong>Wygenerowania mapy kariery</strong> — dane z LinkedIn są przetwarzane jednorazowo przez AI w celu stworzenia grafiki</li>
+    <li><strong>Wysyłki gotowej mapy na e-mail</strong> — jednorazowo, po wygenerowaniu</li>
+  </ul>
+  <p>Podstawą prawną przetwarzania jest <strong>Twoja dobrowolna zgoda</strong> (art. 6 ust. 1 lit. a RODO).</p>
+
+  <h2>4. Gdzie przechowujemy Twoje dane</h2>
+  <p>Dane (e-mail, imię, link LinkedIn) są zapisywane w <strong>Google Sheets</strong>, dostępnym wyłącznie dla administratora. Infrastruktura Google spełnia wymogi RODO. Dane nie są przekazywane poza Europejski Obszar Gospodarczy.</p>
+  <p>Do generowania grafiki wykorzystujemy API Google Gemini. Do wysyłki e-maili korzystamy z automatyzacji opartej na narzędziu n8n.</p>
+
+  <h2>5. Jak długo przechowujemy Twoje dane</h2>
+  <p>Twój e-mail i dane zgłoszenia przechowywane są przez czas niezbędny do obsługi zamówienia, a następnie oznaczane jako zrealizowane. Jeśli chcesz, aby Twoje dane zostały trwale usunięte, napisz do nas bezpośrednio.</p>
+
+  <h2>6. Twoje prawa</h2>
+  <p>Na podstawie RODO przysługują Ci następujące prawa:</p>
+  <ul>
+    <li><strong>Prawo dostępu</strong> — możesz zapytać jakie dane o Tobie przechowujemy</li>
+    <li><strong>Prawo do sprostowania</strong> — możesz poprosić o poprawienie nieprawidłowych danych</li>
+    <li><strong>Prawo do usunięcia</strong> — możesz poprosić o usunięcie swoich danych w każdej chwili</li>
+    <li><strong>Prawo do wycofania zgody</strong> — możesz wycofać zgodę w dowolnym momencie bez podawania przyczyny</li>
+  </ul>
+  <p>Aby skorzystać z tych praw, napisz na: <span class="eml">kontakt@mediafy.com.pl</span></p>
+
+  <h2>7. Udostępnianie danych trzecim stronom</h2>
+  <p>Nie sprzedajemy ani nie udostępniamy Twoich danych osobowych żadnym podmiotom trzecim w celach marketingowych. Dane są przetwarzane wyłącznie przez narzędzia techniczne niezbędne do realizacji usługi (Google Sheets, Google Gemini API, n8n).</p>
+
+  <h2>8. Pliki cookies</h2>
+  <p>Serwis LiGo Career nie używa własnych plików cookies do śledzenia użytkowników. Strona hostowana jest na GitHub Pages, który może zbierać standardowe dane techniczne (adres IP, typ przeglądarki) zgodnie z własną polityką prywatności.</p>
+
+  <h2>9. Zmiany polityki prywatności</h2>
+  <p>Zastrzegamy sobie prawo do zmiany niniejszej polityki. Wszelkie zmiany będą publikowane na tej stronie z nową datą aktualizacji.</p>
+
+  <h2>10. Kontakt</h2>
+  <p>W razie pytań dotyczących prywatności napisz do nas:<br>
+  <span class="eml">kontakt@mediafy.com.pl</span><br>
+  lub odwiedź: <a href="https://www.mediafy.com.pl/" target="_blank" style="color:var(--red)">www.mediafy.com.pl</a></p>
+</div>
+
+<footer>
+  <p>Made with &#129522; by <strong>LiGo Career</strong> &nbsp;&middot;&nbsp; Produkt firmy <a href="https://www.mediafy.com.pl/" target="_blank">Mediafy</a> &nbsp;&middot;&nbsp; Nie jestesmy powiazani z The LEGO Group&reg;</p>
+  <div class="foot-dots">
+    <div class="fd" style="background:var(--red)"></div>
+    <div class="fd" style="background:var(--yellow)"></div>
+    <div class="fd" style="background:var(--blue)"></div>
+    <div class="fd" style="background:var(--green)"></div>
+  </div>
+</footer>
+
+</body>
+</html>
