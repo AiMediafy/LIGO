@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LiGo Career — Zamień Karierę w Budowlę z Klocków</title>
+
+<!-- SEO -->
+<meta name="description" content="Wygeneruj unikalną grafikę swojej kariery zawodowej w stylu klocków na podstawie profilu LinkedIn. AI tworzy mapę Twojego doświadczenia — gotową do pochwalenia się!">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (LinkedIn, Facebook, Slack) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="LiGo Career — Zobacz swoje Doświadczenie w Stylu Klocków">
+<meta property="og:description" content="Podaj link do LinkedIn, AI generuje unikalną mapę Twojej kariery w stylu klockowym. Pierwsze miejsca za darmo!">
+<meta property="og:image" content="lego1.png">
+<meta property="og:locale" content="pl_PL">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LiGo Career — Mapa Kariery w Stylu Klocków">
+<meta name="twitter:description" content="Wygeneruj unikalną grafikę swojej kariery z LinkedIn w stylu klockowym. AI, bez rejestracji!">
+<meta name="twitter:image" content="lego1.png">
+
+<!-- Favicon — klockowy emoji SVG -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧱</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -332,13 +353,73 @@
   }
   #li-tab-avatar:hover { transform:translate(-2px,-2px); }
 
+  /* HAMBURGER */
+  .hamburger {
+    display:none; flex-direction:column; gap:5px;
+    cursor:pointer; padding:8px; background:none; border:none;
+    z-index:200;
+  }
+  .hamburger span {
+    display:block; width:24px; height:2.5px;
+    background:var(--dark); border-radius:2px;
+    transition:transform .3s, opacity .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform:translateY(7.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7.5px) rotate(-45deg); }
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu {
+    display:none; position:fixed; inset:0; z-index:150;
+    background:rgba(255,251,242,0.98); backdrop-filter:blur(16px);
+    flex-direction:column; align-items:center; justify-content:center; gap:32px;
+  }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a {
+    font-family:'Montserrat',sans-serif; font-weight:800; font-size:24px;
+    color:var(--dark); text-decoration:none; cursor:pointer;
+    transition:color .2s;
+  }
+  .mobile-menu a:hover { color:var(--red); }
+  .mobile-menu .mob-cta {
+    background:var(--red); color:white;
+    padding:14px 40px; border-radius:10px;
+    border:2px solid rgba(0,0,0,0.15); box-shadow:4px 4px 0 rgba(0,0,0,0.12);
+    font-size:18px;
+  }
+
   @media(max-width:768px){
-    nav{padding:0 20px} .nav-links{display:none}
-    .hero{padding:60px 20px 50px}
-    .how,.example,.form-wrap{padding:80px 20px}
-    .form-box{padding:36px 22px}
-    #li-card{width:260px; left:12px; bottom:12px;}
-    #li-tab-avatar{left:12px; bottom:12px;}
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .nav-cta { display:none; }
+    .hamburger { display:flex; }
+
+    .hero { padding:80px 24px 60px; }
+    .hero h1 { font-size:clamp(26px,7vw,40px); }
+    .hero-sub { font-size:15px; margin-top:20px; }
+    .hero-board { margin-top:18px; }
+    .hero-img-wrap { max-height:30vh; }
+    .btn-primary { font-size:16px; padding:14px 28px; width:100%; justify-content:center; }
+    .hero-cta { flex-direction:column; width:100%; }
+    .spots-pill { width:100%; text-align:center; }
+
+    .how, .example, .form-wrap { padding:70px 20px; }
+    .section-h { font-size:clamp(24px,6vw,36px); }
+    .steps { gap:40px; }
+    .step { min-width:100%; max-width:100%; }
+
+    .form-box { padding:30px 20px; margin:0 4px; }
+    .form-h { font-size:24px; }
+
+    footer { padding:20px 20px; flex-direction:column; align-items:flex-start; gap:14px; }
+
+    #li-card { width:calc(100vw - 24px); left:12px; bottom:12px; }
+    #li-tab-avatar { left:12px; bottom:12px; }
+  }
+
+  @media(max-width:400px){
+    .hero h1 { font-size:24px; }
+    .btn-primary { font-size:14px; }
   }
 </style>
 </head>
@@ -355,7 +436,18 @@
     <li><a onclick="smoothScroll('start')">Formularz</a></li>
   </ul>
   <a onclick="smoothScroll('start')" class="nav-cta">Zbuduj Swoją</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="closeMobileMenu(); smoothScroll('how')">Jak to działa</a>
+  <a onclick="closeMobileMenu(); smoothScroll('example')">Przykład</a>
+  <a onclick="closeMobileMenu(); smoothScroll('start')">Formularz</a>
+  <a onclick="closeMobileMenu(); smoothScroll('start')" class="mob-cta">🧱 Zbuduj Swoją</a>
+</div>
 
 <section class="hero">
   <span class="hero-badge">Doświadczenie x LinkedIn x AI</span>
@@ -434,8 +526,8 @@
     </div>
     <div class="success-msg" id="successMsg">
       <div class="big">🧱✨</div>
-      <h3>Budujemy Twój Świat!</h3>
-      <p>Sprawdź skrzynkę email — wyślemy Ci Twoją unikalną mapę kariery z klocków!</p>
+      <h3>Dziękujemy za wypełnienie formularza!</h3>
+      <p>Sprawdź skrzynkę email — wyślemy Ci Twoją unikalną mapę kariery z klocków w ciągu 24 godzin!</p>
     </div>
   </div>
 </section>
@@ -478,6 +570,20 @@
      onerror="this.src='https://ui-avatars.com/api/?name=Jerzy&background=C4001A&color=fff&size=44'"/>
 
 <script>
+  /* hamburger */
+  const hamburger   = document.getElementById('hamburger');
+  const mobileMenu  = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   /* płynne przewijanie */
   function smoothScroll(id) {
     const el = document.getElementById(id);
