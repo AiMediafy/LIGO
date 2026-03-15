@@ -282,76 +282,7 @@
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
   .reveal.visible{opacity:1;transform:none}
 
-  /* ── FISZKA LINKEDIN – styl klockowy ── */
-  #li-card {
-    position:fixed; bottom:28px; left:28px; width:290px;
-    background:var(--cream);
-    border:2px solid rgba(0,0,0,0.1);
-    border-radius:14px;
-    box-shadow:5px 5px 0 rgba(0,0,0,0.13), 0 16px 50px rgba(0,0,0,0.12);
-    z-index:999; overflow:hidden;
-    transform:translateY(160px); opacity:0;
-    transition:transform .45s cubic-bezier(.22,.68,0,1.2), opacity .35s ease;
-    pointer-events:none;
-  }
-  #li-card.visible  { transform:translateY(0); opacity:1; pointer-events:all; }
-  #li-card.hiding   { transform:translateY(160px); opacity:0; pointer-events:none; }
 
-  .li-topbar {
-    height:5px;
-    background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue),var(--green));
-  }
-  #li-close {
-    position:absolute; top:10px; right:10px;
-    width:24px; height:24px;
-    background:rgba(0,0,0,0.07); border:none; border-radius:50%;
-    color:var(--dark); font-size:10px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:background .2s; z-index:2;
-  }
-  #li-close:hover { background:rgba(0,0,0,0.15); }
-
-  .li-banner {
-    height:72px;
-    background:linear-gradient(135deg,var(--red) 0%,#8B0010 100%);
-    overflow:hidden;
-  }
-  .li-banner img { width:100%; height:100%; object-fit:cover; display:block; }
-
-  .li-body { padding:0 16px 18px; display:flex; flex-direction:column; gap:6px; }
-  .li-avatar-wrap { margin-top:-22px; position:relative; z-index:1; }
-  .li-avatar {
-    width:50px; height:50px; border-radius:8px;
-    border:3px solid var(--cream);
-    box-shadow:3px 3px 0 rgba(0,0,0,0.12);
-    object-fit:cover; display:block; background:var(--light);
-  }
-  .li-name     { font-family:'Montserrat',sans-serif; font-size:0.9rem; font-weight:800; color:var(--dark); line-height:1.2; }
-  .li-title    { font-size:0.72rem; font-weight:700; color:var(--red); margin-top:-2px; }
-  .li-sub      { font-size:0.7rem; font-weight:600; color:rgba(28,28,28,0.5); line-height:1.5; }
-  .li-location { font-size:0.65rem; font-weight:700; color:rgba(28,28,28,0.35); }
-  .li-btn {
-    display:block; text-align:center;
-    background:var(--blue); color:#fff;
-    font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:800;
-    padding:9px 16px; border-radius:7px;
-    border:2px solid rgba(0,0,0,0.12); box-shadow:3px 3px 0 rgba(0,0,0,0.1);
-    text-decoration:none; margin-top:8px;
-    transition:transform .12s, box-shadow .12s;
-  }
-  .li-btn:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 rgba(0,0,0,0.1); }
-  .li-btn:active { transform:translate(1px,1px); box-shadow:1px 1px 0 rgba(0,0,0,0.1); }
-
-  #li-tab-avatar {
-    position:fixed; bottom:28px; left:28px;
-    width:44px; height:44px; border-radius:8px;
-    border:3px solid var(--red);
-    box-shadow:3px 3px 0 rgba(0,0,0,0.15);
-    object-fit:cover; cursor:pointer; z-index:1002;
-    display:none;
-    transition:transform .15s;
-  }
-  #li-tab-avatar:hover { transform:translate(-2px,-2px); }
 
   /* HAMBURGER */
   .hamburger {
@@ -542,32 +473,7 @@
   </div>
 </footer>
 
-<!-- ── FISZKA LINKEDIN ── -->
-<div id="li-card">
-  <div class="li-topbar"></div>
-  <button id="li-close">✕</button>
-  <div class="li-banner">
-    <img src="https://aimediafy.github.io/mediafy-chatbot/BanerLinkedIn.png" alt="" onerror="this.style.display='none'"/>
-  </div>
-  <div class="li-body">
-    <div class="li-avatar-wrap">
-      <img class="li-avatar"
-           src="https://aimediafy.github.io/mediafy-chatbot/ProfiloweLinkedIn.png"
-           alt="Jerzy Niewiadowski"
-           onerror="this.src='https://ui-avatars.com/api/?name=Jerzy+Niewiadowski&background=C4001A&color=fff&size=80'"/>
-    </div>
-    <div class="li-name">Jerzy Niewiadowski</div>
-    <div class="li-title">Co-Founder Mediafy</div>
-    <div class="li-sub">Wdrażamy Automatyzacje i Szkolenia AI dla Liderów Rynku</div>
-    <div class="li-location">📍 Poznań, Polska</div>
-    <a class="li-btn" href="https://www.linkedin.com/in/jerzy-mediafy/" target="_blank">Obserwuj na LinkedIn</a>
-  </div>
-</div>
 
-<img id="li-tab-avatar"
-     src="https://aimediafy.github.io/mediafy-chatbot/ProfiloweLinkedIn.png"
-     alt="Jerzy"
-     onerror="this.src='https://ui-avatars.com/api/?name=Jerzy&background=C4001A&color=fff&size=44'"/>
 
 <script>
   /* hamburger */
@@ -620,27 +526,7 @@
     if (sp) sp.textContent = Math.max(0, parseInt(sp.textContent) - 1);
   }
 
-  /* fiszka LinkedIn */
-  const liCard   = document.getElementById('li-card');
-  const liClose  = document.getElementById('li-close');
-  const liAvatar = document.getElementById('li-tab-avatar');
 
-  function hideCard() {
-    liCard.classList.remove('visible');
-    liCard.classList.add('hiding');
-    setTimeout(() => { liAvatar.style.display = 'block'; }, 500);
-  }
-  function showCard() {
-    liAvatar.style.display = 'none';
-    liCard.classList.remove('hiding');
-    liCard.classList.add('visible');
-  }
-
-  liAvatar.addEventListener('click', showCard);
-  liClose.addEventListener('click', hideCard);
-
-  /* automatycznie pokaż kartę po 2 sekundach */
-  setTimeout(showCard, 2000);
 </script>
 </body>
 </html>
